@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20180124234912) do
 
   create_table "applications", force: :cascade do |t|
     t.text     "cover_letter"
-    t.string   "status"
+    t.string   "status",         default: "Draft"
     t.datetime "submit_date"
     t.integer  "user_id"
     t.integer  "job_listing_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180124234912) do
   end
 
   create_table "job_listings", force: :cascade do |t|
+    t.string   "company"
     t.string   "title"
     t.text     "summary"
     t.text     "description"
