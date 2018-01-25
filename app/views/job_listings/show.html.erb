@@ -1,0 +1,11 @@
+<h1>Job listing page </h1>
+
+<div>
+    <h2><strong>Company:</strong> <%= @listing.company%></h2>
+    <p><strong>Job title:</strong> <%= @listing.title%></p>
+    <p><strong>Summary:</strong> <%= @listing.summary%></p>
+    <p><strong>Description:</strong> <%= @listing.description%></p>
+    <p><strong>Qualifications:</strong> <%= @listing.qualifications%></p>
+
+    <%= link_to "Job posting link", @listing.url %>
+</div>

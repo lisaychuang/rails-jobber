@@ -1,0 +1,7 @@
+<h1> List all Job listings</h1>
+
+<ul>
+    <% @listings.each do |job| %>
+        <li><%= link_to("#{job.company}: #{job.title}", job_listing_path(job)) %></li>
+    <% end %>
+</ul>
