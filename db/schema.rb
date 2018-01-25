@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124232211) do
+ActiveRecord::Schema.define(version: 20180124234912) do
+
+  create_table "applications", force: :cascade do |t|
+    t.text     "cover_letter"
+    t.string   "status"
+    t.datetime "submit_date"
+    t.integer  "user_id"
+    t.integer  "job_listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_listings", force: :cascade do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.text     "description"
+    t.text     "qualifications"
+    t.string   "url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -19,6 +39,19 @@ ActiveRecord::Schema.define(version: 20180124232211) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "start_date"
+    t.string   "end_date",   default: "Present"
+    t.string   "title"
+    t.string   "employer"
+    t.string   "location"
+    t.text     "experience"
+    t.integer  "ranking"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
