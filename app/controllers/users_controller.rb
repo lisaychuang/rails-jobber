@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
-  
+
   def index
     @users = User.all
   end
 
   def new 
-    @user = User.new
+    if current_user
+      @user = current_user
+      render 'show'
+    else
+      @user = User.new
+      render 'new'
+    end
   end
 
   def create
@@ -21,19 +27,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = current_user
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
+    @user = current_user
+    if @user.update(user_update_params)
         redirect_to user_path(@user)
     else
-        redirect_to edit_user_path
+      # If there are errors
+      @user.errors.full_messages.each do |msg|
+        puts "ERRORS: " + msg
+      end
+      redirect_to edit_user_path
     end
   end
 
@@ -43,5 +53,9 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
+
+  def user_update_params
+    params.require(:user).permit(:first_name, :last_name, :email)
+end
 
 end

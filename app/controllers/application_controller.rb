@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def logged_in?
     session.include? :user_id
   end
+  helper_method :logged_in?
 
   def require_login
     # return head(:forbidden) unless session.include? :user_id    
