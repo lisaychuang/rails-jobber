@@ -2,8 +2,8 @@ class WorkExperiencesController < ApplicationController
   before_action :require_login
   
   def index
-    @user_experiences = current_user.work_experiences
-    # @user_experiences = @experiences.select{ |exp| exp.user_id = }
+    @user = current_user
+    @user_experiences = @user.work_experiences.order(ranking: :asc)
   end
 
   def new

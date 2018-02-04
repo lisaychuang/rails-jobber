@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :work_experiences
+  resources :users do
+    resources :work_experiences
+  end
   resources :job_listings
   resources :applications
 

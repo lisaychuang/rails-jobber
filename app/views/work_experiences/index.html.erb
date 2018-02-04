@@ -2,6 +2,6 @@
 
 <ul>
     <% @user_experiences.each do |experience| %>
-        <li><%= link_to("#{experience.employer}: #{experience.title}", work_experience_path(experience)) %></li>
+        <li><%= link_to("#{experience.employer}: #{experience.title}", user_work_experience_path(@user, experience)) %></li>
     <% end %>
 </ul>
