@@ -8,8 +8,16 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def logged_in?
+    session.include? :user_id
+  end
+
   def require_login
-    return head(:forbidden) unless session.include? :user_id    
+    # return head(:forbidden) unless session.include? :user_id    
+    unless logged_in?  
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to '/login'
+    end
   end
   helper_method :require_login
 

@@ -1,4 +1,6 @@
 class JobListingsController < ApplicationController
+  before_action :require_login
+  
   def index
     @listings = JobListing.all
   end

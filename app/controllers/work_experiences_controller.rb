@@ -1,4 +1,6 @@
 class WorkExperiencesController < ApplicationController
+  before_action :require_login
+  
   def index
     @experiences = WorkExperience.all
     # @user_experiences = @experiences.select{ |exp| exp.user_id = }
