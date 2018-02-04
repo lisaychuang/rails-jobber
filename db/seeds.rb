@@ -4,11 +4,11 @@
 
 DATA = {
   :user_keys =>
-    ["first_name", "last_name", "email"],
+    ["first_name", "last_name", "email", "password", "password_confirmation"],
   :users => [
-    ["Lisa", "H","lisa@example.com"],
-    ["Mike", "N","mike@example.com"],
-    ["Stef", "P","stef@example.com"]
+    ["Lisa", "H","lisa@example.com", "bubbleTea","bubbleTea"],
+    ["Mike", "N","mike@example.com", "letsRace", "letsRace"],
+    ["Stef", "P","stef@example.com", "MarvinDaBest", "MarvinDaBest"]
   ],
   :work_experiences_keys =>
    ["user_id", "start_date", "end_date", "title", "employer", "location", "experience", "ranking"],
