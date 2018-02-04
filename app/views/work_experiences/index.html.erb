@@ -1,7 +1,7 @@
 <h1>List of Work experiences</h1>
 
 <ul>
-    <% @experiences.each do |experience| %>
+    <% @user_experiences.each do |experience| %>
         <li><%= link_to("#{experience.employer}: #{experience.title}", work_experience_path(experience)) %></li>
     <% end %>
 </ul>
