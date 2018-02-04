@@ -2,7 +2,7 @@ class WorkExperiencesController < ApplicationController
   before_action :require_login
   
   def index
-    @experiences = WorkExperience.all
+    @user_experiences = current_user.work_experiences
     # @user_experiences = @experiences.select{ |exp| exp.user_id = }
   end
 
