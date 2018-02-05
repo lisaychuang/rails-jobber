@@ -14,6 +14,16 @@ class WorkExperiencesController < ApplicationController
     end
   end
 
+  def create
+    @user = User.find_by(id: params[:user_id])
+    @experience = @user.work_experiences.new(experience_params)
+    if @experience.save
+      render 'show'
+    else
+      render 'new'
+    end
+  end
+
   def show
     @experience = WorkExperience.find_by(id: params[:id])
   end
@@ -35,7 +45,7 @@ class WorkExperiencesController < ApplicationController
   def update
     @user = User.find_by(id: params[:user_id])
     @experience = @user.work_experiences.find_by(id: params[:id])
-    if @experience.update(experience_params)
+    if @experience.update(experience_update_params)
         redirect_to user_work_experience_path(@user, @experience)
     else
         redirect_to edit_user_work_experience_path(@user, @experience)
@@ -45,7 +55,12 @@ class WorkExperiencesController < ApplicationController
   private 
     
   
-  def experience_params
+  def experience_update_params
       params.require(:work_experience).permit(:employer, :title, :location, :start_date, :end_date, :experience, :ranking)
   end
+
+  def experience_params
+    params.require(:work_experience).permit(:user_id, :employer, :title, :location, :start_date, :end_date, :experience, :ranking)
+  end
+
 end
