@@ -1,7 +1,11 @@
 <h1>List of Work experiences</h1>
 
+<% flash.each do |key, value| %>
+    <div> <%= key %>:<%= value %></div>
+<% end %>
+
 <ul>
-    <% @experiences.each do |experience| %>
-        <li><%= link_to("#{experience.employer}: #{experience.title}", work_experience_path(experience)) %></li>
+    <% @user_experiences.each do |experience| %>
+        <li><%= link_to("#{experience.employer}: #{experience.title}", user_work_experience_path(@user, experience)) %></li>
     <% end %>
 </ul>

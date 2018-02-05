@@ -1,6 +1,11 @@
-<h1><%= "Work experience detail: #{experience.employer}: #{experience.title}" %> </h1>
+<h1><%= "Work experience detail: #{@experience.employer}" %> </h1>
 
 <ul>
-    <li>Full name: <%= @user.full_name%></li>
-    <li>Email: <%= @user.email %> </li>
+    <li>Company: <%= @experience.employer%></li>
+    <li>Title: <%= @experience.title%></li>
+    <li>Started: <%= @experience.start_date%></li>
+    <li>Ended: <%= @experience.end_date %> </li>
+
+    <li>Location: <%= @experience.location %> </li>
+    <li>Experience: <%= @experience.experience %> </li>
 </ul>
