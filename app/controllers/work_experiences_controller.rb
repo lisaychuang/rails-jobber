@@ -1,8 +1,8 @@
 class WorkExperiencesController < ApplicationController
-  before_action :require_login
+  before_action :require_login, :current_user
   
   def index
-    @user = current_user
+    @user = User.find_by(id: params[:user_id])
       @user_experiences = @user.work_experiences.order(ranking: :asc)
   end
 
