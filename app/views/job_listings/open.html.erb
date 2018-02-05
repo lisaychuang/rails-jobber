@@ -1,0 +1,7 @@
+<h1>Open job listings</h1>
+
+<ol>
+    <% @open_listings.each do |job| %>
+        <li><%= link_to("#{job.company}: #{job.title}", job_listing_path(job)) %></li>
+    <%end%>
+</ol>

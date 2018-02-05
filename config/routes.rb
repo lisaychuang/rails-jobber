@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :work_experiences
   end
-  resources :job_listings
+  resources :job_listings do
+    # Adding collection route for JobListing scope methods: open
+    get 'open', on: :collection
+  end
   resources :applications
 
   root "application#welcome"

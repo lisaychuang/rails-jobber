@@ -14,4 +14,9 @@ class JobListingsController < ApplicationController
 
   def edit
   end
+
+  def open
+    @open_listings = JobListing.open
+  end
+
 end
