@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202231902) do
+ActiveRecord::Schema.define(version: 20180205205014) do
 
   create_table "applications", force: :cascade do |t|
     t.text     "cover_letter"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 20180202231902) do
     t.text     "description"
     t.text     "qualifications"
     t.string   "url"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "status",         default: true
   end
 
   create_table "users", force: :cascade do |t|
