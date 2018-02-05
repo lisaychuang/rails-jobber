@@ -27,15 +27,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find_by(id: params[:id])
   end
 
   def edit
-    @user = current_user
+    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find_by(id: params[:id])
     if @user.update(user_update_params)
         redirect_to user_path(@user)
     else

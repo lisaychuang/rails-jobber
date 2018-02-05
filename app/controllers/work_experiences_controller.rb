@@ -3,7 +3,7 @@ class WorkExperiencesController < ApplicationController
   
   def index
     @user = current_user
-    @user_experiences = @user.work_experiences.order(ranking: :asc)
+      @user_experiences = @user.work_experiences.order(ranking: :asc)
   end
 
   def new
